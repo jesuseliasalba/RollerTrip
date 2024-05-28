@@ -76,15 +76,25 @@ button {
 header.grid-container {
   grid-template-columns: 1fr 3fr;
   height: 8svh;
+  background-color: var(--jea-color-primary);
 }
 
 header.grid-container > img {
-  height: 100%;
+  height: 80%;
 }
 
 #navegator > ul {
   flex-direction: row;
   gap: var(--jea-gap-l);
+  padding-right: var(--jea-padding-xl);
+}
+#navegator > ul > * {
+  min-width: 50px;
+}
+
+main.grid-container {
+  grid-template-columns: 1fr;
+  grid-auto-rows: 100%;
 }
 
 #hero {
