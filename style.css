@@ -159,4 +159,8 @@ main.grid-container {
   #navegator {
     display: none;
   }
+  #foot {
+    flex-direction: column;
+    height: 11svh;
+  }
 }
