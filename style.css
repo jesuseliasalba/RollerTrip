@@ -1,11 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@font-face {
+  font-family: Gilroy;
+  src: url(./assets/Tipografia/Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: Gilroy-Bold;
+  src: url(./assets/Tipografia/Gilroy-Bold.ttf);
+}
 
 * {
   margin: 0px;
   padding: 0px;
   border: 0px;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "Gilroy", sans-serif;
 }
 
 a {
@@ -26,8 +33,8 @@ button {
   /* COLORS */
   --jea-color-white: white;
   --jea-color-black: black;
-  --jea-color-primary: #ffcc00;
-  --jea-color-secundary: #0b406a;
+  --jea-color-primary: #ffcb03;
+  --jea-color-secundary: #094068;
 
   /* SPACING */
   --jea-margin-xs: 5px;
@@ -78,85 +85,139 @@ button {
 /* Hago que mi body ocupe toda la web y le digo como tiene que ir ordenado */
 body {
   display: grid;
-  grid-template-rows: 8svh 100% 6svh;
+  grid-template-rows: 100% 5svh;
   grid-template-columns: 1fr;
   min-height: 100svh;
   grid-template-areas:
-    "header"
     "main"
     "footer";
   grid-gap: 10px;
   grid-row-gap: 0;
-}
-
-header.grid-container {
-  grid-area: header;
-  grid-template-columns: 1fr 4fr;
-  height: 8svh;
   background-color: var(--jea-color-primary);
 }
 
-header.grid-container > a > img {
-  height: 50px;
+#header {
+  background-color: var(--jea-color-primary);
+  position: absolute;
+  width: 80svw;
+  place-self: center;
+  top: 35px;
+  border-radius: var(--jea-border-radius-small);
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 30px;
+  font-size: x-large;
+}
+
+header > a {
+  height: 60px;
+}
+
+header > a > img {
+  height: 100%;
+  width: 100%;
+}
+
+#header > nav {
+  padding-right: 35px;
+}
+
+#shop {
+  position: absolute;
+  height: 100px;
+  top: 0px;
+  right: 25px;
 }
 
 #navegator > ul {
   flex-direction: row;
   gap: var(--jea-gap-l);
-  padding-right: var(--jea-padding-xl);
 }
-#navegator > ul > * {
-  min-width: 50px;
+
+#menu-icon {
+  height: 40px;
+  display: none;
 }
 
 main.grid-container {
   grid-area: main;
   grid-template-columns: 1fr;
   grid-auto-rows: 100%;
-  align-items: start;
+  align-items: flex-start;
+  height: 90svh;
 }
 
 #hero {
-  height: 500px;
-  width: 100%;
-  background-image: url("./assets/Header/hero_img.jpg");
-  background-position: center;
-  background-size: cover;
+  background-image: url("./assets/Hero/fondo.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-width: 100svw;
+  min-height: 60svh;
 }
 
-#hero > h1 {
-  color: var(--jea-color-secundary);
-  font-size: 8vw;
-  text-shadow: 0px 0px 15px #cecece;
-}
-
-#hero > h1 > span {
+#hero > h1,
+#hero > p {
   color: var(--jea-color-primary);
+  font-family: "Gilroy-Bold", sans-serif;
+  font-style: italic;
+  font-size: 8vw;
 }
 
-#foot {
+#hero > p {
+  font-size: 3vw;
+}
+
+#footer {
   grid-area: footer;
   background-color: var(--jea-color-primary);
-  height: 6svh;
   flex-direction: row;
   justify-content: space-around;
 }
 
-#foot > a {
+#footer > a > img {
+  width: 20px;
+}
+
+#footer > a {
   flex-direction: row;
   gap: var(--jea-gap-xs);
 }
 
-#foot > a > img {
-  width: 30px;
-}
-
 /* Responsive tablets */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1140px) {
+  body {
+    grid-template-rows: 100% 10svh;
+  }
+  #hero {
+    background-size: cover;
+  }
+  #navegator {
+    display: none;
+  }
+  #menu-icon {
+    height: 35px;
+    display: block;
+  }
+  #footer {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
 }
 
 /* Responsive moviles */
 @media (max-width: 767px) {
+  body {
+    grid-template-rows: 100% 10svh;
+  }
+  #header {
+    height: 60px;
+    width: 90svw;
+  }
+  header > a {
+    height: 50px;
+  }
   #navegator {
     display: none;
   }
@@ -167,6 +228,30 @@ main.grid-container {
     padding-bottom: 5px;
   }
   #hero {
-    height: 300px;
+    background-size: cover;
+    min-height: 0;
+    height: 40svh;
+    top: 100px;
+  }
+  #hero > h1,
+  #hero > p {
+    color: var(--jea-color-primary);
+    font-family: "Gilroy-Bold", sans-serif;
+    font-style: italic;
+    font-size: 14vw;
+    position: relative;
+    bottom: -40px;
+  }
+  #hero > p {
+    font-size: 6vw;
+  }
+  #menu-icon {
+    height: 25px;
+    display: block;
+  }
+  #footer {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
   }
 }
