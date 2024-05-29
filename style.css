@@ -162,5 +162,10 @@ main.grid-container {
   #foot {
     flex-direction: column;
     height: 11svh;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+  #hero {
+    height: 300px;
   }
 }
