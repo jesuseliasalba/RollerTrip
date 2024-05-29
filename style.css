@@ -58,6 +58,8 @@ button {
   --jea-border-radius-big: 1rem;
 }
 
+/* Declaro unas clases que voy a reutilizar: */
+
 .flex-container {
   display: flex;
   align-items: center;
@@ -73,14 +75,29 @@ button {
   align-content: center;
 }
 
+/* Hago que mi body ocupe toda la web y le digo como tiene que ir ordenado */
+body {
+  display: grid;
+  grid-template-rows: 8svh 100% 6svh;
+  grid-template-columns: 1fr;
+  min-height: 100svh;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-gap: 10px;
+  grid-row-gap: 0;
+}
+
 header.grid-container {
-  grid-template-columns: 1fr 3fr;
+  grid-area: header;
+  grid-template-columns: 1fr 4fr;
   height: 8svh;
   background-color: var(--jea-color-primary);
 }
 
 header.grid-container > img {
-  height: 80%;
+  height: 50px;
 }
 
 #navegator > ul {
@@ -93,24 +110,53 @@ header.grid-container > img {
 }
 
 main.grid-container {
+  grid-area: main;
   grid-template-columns: 1fr;
   grid-auto-rows: 100%;
+  align-items: start;
 }
 
 #hero {
+  height: 500px;
+  width: 100%;
+  background-image: url("./assets/Header/hero_img.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
-#hero-text {
-  position: absolute;
-  text-align: center;
+#hero > h1 {
+  color: var(--jea-color-secundary);
+  font-size: 8vw;
 }
 
-#hero-text {
-  font-size: 50px;
+#hero > h1 > span {
   color: var(--jea-color-primary);
 }
 
-#hero-text > p {
-  font-size: 25px;
-  color: var(--jea-color-white);
+#foot {
+  grid-area: footer;
+  background-color: var(--jea-color-primary);
+  height: 6svh;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#foot > a {
+  flex-direction: row;
+  gap: var(--jea-gap-xs);
+}
+
+#foot > a > img {
+  width: 30px;
+}
+
+/* Responsive tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Responsive moviles */
+@media (max-width: 767px) {
+  #navegator {
+    display: none;
+  }
 }
