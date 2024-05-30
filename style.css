@@ -99,10 +99,10 @@ body {
 
 #header {
   background-color: var(--jea-color-primary);
-  position: absolute;
-  width: 80svw;
+  position: fixed;
+  width: 75svw;
   place-self: center;
-  top: 35px;
+  top: 50px;
   border-radius: var(--jea-border-radius-small);
   flex-direction: row;
   justify-content: space-between;
