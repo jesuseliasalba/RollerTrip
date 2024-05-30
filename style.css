@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
 @font-face {
   font-family: Gilroy;
   src: url(./assets/Tipografia/Gilroy-Regular.ttf);
@@ -190,7 +196,7 @@ main.flex-container {
   height: 12rem;
 }
 
-#pilares > h3 {
+main > section > h3 {
   grid-column: 1 / -1;
   color: var(--jea-color-secundary);
   font-family: "Gilroy-Bold", sans-serif;
@@ -227,6 +233,30 @@ main.flex-container {
   height: 100px;
   font-size: x-small;
   color: var(--jea-color-primary);
+}
+
+#tienda > ul {
+  gap: 20px;
+}
+
+#articulos {
+  grid-template-columns: 400px;
+  grid-template-rows: 30px 1fr;
+}
+
+#galeria {
+  grid-template-columns: repeat(5, 1fr);
+  grid-row: 1fr 1fr;
+  width: 800px;
+  gap: 10px;
+  background-color: var(--jea-color-white);
+  border-radius: var(--jea-border-radius-big);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+#galeria img {
+  width: 100%;
 }
 
 #footer {
@@ -267,6 +297,11 @@ main.flex-container {
   #pilares {
     grid-template-columns: 1fr 1fr;
     width: 40%;
+  }
+  #galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: 1fr 1fr 1fr 1fr 1fr;
+    width: 500px;
   }
 }
 
@@ -320,5 +355,10 @@ main.flex-container {
   #pilares {
     grid-template-columns: repeat(1, 1fr);
     width: 40%;
+  }
+  #galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-row: 1fr 1fr 1fr 1fr 1fr;
+    width: 300px;
   }
 }
